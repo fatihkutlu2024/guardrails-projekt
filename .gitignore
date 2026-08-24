@@ -1,0 +1,9 @@
+# Virtuelle Umgebung (sehr groß, gehört nicht ins Repo)
+.venv/
+
+# Geheimnisse & API-Keys
+.env
+
+# Python Cache-Dateien
+__pycache__/
+*.pyc
