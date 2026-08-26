@@ -10,5 +10,5 @@ __pycache__/
 
 
 # weitere Dateien, die nicht ins Repo gehören
-.pdf
-.docx
+*.pdf
+*.docx
