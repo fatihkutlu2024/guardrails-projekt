@@ -34,7 +34,9 @@ Guardrails_Projekt/
 ├── tests/
 │   ├── __init__.py
 │   ├── test_cases.py    # Testdatensatz mit HR-Szenarien
-│   └── test.py          # Rich-Benchmark-Runner
+│   ├── test_guard.py    # Testdatei für HR_Guard
+│   ├── test_unprotected.py # Testdatei für Ablauf ohne Guard
+    └── test_results.py  # Ergebnisse der Tests
 ├── .env.example         # Vorlage für Umgebungsvariablen
 ├── docs/
 │   └── evaluation.md    # Auswertung der Testdaten
