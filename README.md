@@ -4,7 +4,7 @@
 
 Dieses Projekt ist meine Abgabe für die **Guardrails Challenge**.
 
-Ein robuster, abgesicherter KI-HR-Assistent mit mehrstufiger Validierung (**Defense in Depth**). Das System nutzt **Input- und Output-Guards** mit strukturierten Pydantic-Schemas, um Datenschutzverstöße (DSGVO), unzulässige Rechtsberatung und Prompt-Injections in Unternehmensumgebungen zuverlässig abzufangen.
+Ein KI-HR-Assistent mit mehrstufiger Validierung (**Defense in Depth**). Das System nutzt **Input- und Output-Guards** mit strukturierten Pydantic-Schemas, um Datenschutzverstöße (DSGVO), unzulässige Rechtsberatung und Prompt-Injections in Unternehmensumgebungen zuverlässig abzufangen.
 
 Das Projekt verwendet hierbei einen eigenen Custom-Guardrail-Ansatz auf Basis von **OpenAI Structured Outputs** und **Pydantic**.
 
@@ -93,8 +93,8 @@ python -m src.main
 uv run python -m src.main
 ```
 
-### Testsuite mit Benchmark-Tabelle ausführen
-Führt alle definierten Testfälle aus und visualisiert die Validierungsergebnisse in einer formatierten Terminal-Tabelle:
+### Testsuite mit Ergebnistabelle ausführen
+Führt alle definierten Testfälle aus und visualisiert die Validierungsergebnisse in einer übersichtlichen Terminal-Tabelle:
 
 ```sh
 python -m tests.test
@@ -106,4 +106,4 @@ uv run python -m tests.test
 ## Weitere Dokumentation
 
 *   **Architektur & Trade-offs:** Eine detaillierte Begründung meiner Designentscheidungen, der Wahl der HR-Domäne sowie eine Diskussion der Kompromisse zwischen Latenz und Kosten findest du in der [DESIGN.md](DESIGN.md).
-*   **Testergebnisse & Benchmark-Bericht:** Die Testergebnisse aller 11 Szenarien findest du in [test_results.md](tests/test_results.md).
+*   **Testergebnisse:** Die Testergebnisse aller 11 Szenarien findest du in [test_results.md](tests/test_results.md).

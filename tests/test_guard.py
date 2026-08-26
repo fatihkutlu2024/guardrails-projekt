@@ -23,6 +23,7 @@ def run_tests():
 
         action, answer = main(prompt)
         actual = action.value
+        print(answer)
 
         is_passed = (actual == expected)
         if is_passed:
