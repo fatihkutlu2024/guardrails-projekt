@@ -20,7 +20,9 @@ Die Entscheidung für HR war also vor allem pragmatisch: Ich konnte so schnell a
 
 ## 2. Architektur und Entscheidung für den Bau eines eigenen Guards
 
-### Warum ein eigener Guardrail-Code und kein fertiges Framework (z. B. Guardrails AI / NeMo)?
+
+
+### 2.1 Warum ein eigener Guardrail-Code und kein fertiges Framework (z. B. Guardrails AI / NeMo)?
 Zu Beginn des Projekts habe ich recherchiert, was Guardrails genau sind und wie sie in der Praxis eingesetzt werden. Dabei bin ich (auch durch die Aufgabenstellung) auf Frameworks wie *Guardrails AI* gestoßen. 
 
 Das theoretische Konzept dahinter war schnell klar, allerdings fand ich die Umsetzung mit solchen Frameworks im Code unübersichtlich und überladen. Um den gesamten Validierungs- und Filterprozess wirklich im Detail zu verstehen und die volle Kontrolle über den Datenfluss zu behalten, habe ich mich für eine eigene Implementierung mit **Pydantic** und **OpenAI Structured Outputs** entschieden.
@@ -83,7 +85,33 @@ Nutzer-Anfrage
 * Validiert die finale Modellantwort unabhängig auf Halluzinationen, Datenlecks oder falsche Rechtszusagen.
 * Verbesserung der Antwort via Re-Ask: Schlägt die Validierung fehl, liefert das Pydantic-Schema des Guards ein konkretes feedback-Feld mit dem Grund des Verstoßes (z. B. „Antwort enthält Gehaltsangaben – bitte entfernen“). Dieser Hinweis wird direkt an das Core-LLM zurückgespielt. Das Core-LLM erhält so bis zu 2 Nachbesserungsversuche (max_attempts_llm_check = 2). Scheitern alle Versuche, greift eine deterministische Fallback-Ablehnung.
 
----
+
+### 2.3 Code-Struktur & Modularisierung (`src/`)
+
+Um den Code wartbar und übersichtlich zu halten, sind Datenstrukturen, Prüflogik und Ablaufsteuerung strikt voneinander getrennt (Separation of Concerns):
+
+```text
+src/
+├── __init__.py       # Kennzeichnet src als Python-Paket
+├── schemas.py        # Pydantic-Datenmodelle & Schemas für Structured Outputs
+├── validator.py      # Kernlogik der Guardrail-Checks (Input- & Output-Validierung)
+└── main.py           # Pipeline-Orchestrierung (Input -> Core-LLM -> Output -> Re-Ask)
+```
+
+
+### schemas.py (Datenverträge):
+
+Hier liegen alle Pydantic-Modelle (z. B. InputGuardDecision, OutputGuardDecision und Enums für Action/Decision).
+Durch diese Datei sind die Rückgabeformate von OpenAI fest typisiert, wodurch Parsing-Fehler im restlichen Code komplett ausgeschlossen werden.
+
+### validator.py (Die Guard-Logik):
+
+Enthält die isolierten Prüffunktionen (validate_input, validate_output). Diese Datei enthält ausschließlich die Guards, die in der Hauptfunktion verwendet werden.
+
+### main.py (Ablaufsteuerung & Pipeline):
+
+Orchestriert den gesamten Flow. Hier läuft die Pipeline zusammen: Zuerst wird validator.py für den Input aufgerufen. 
+Ist alles sicher, wird das Core-LLM angefragt, danach folgt die Output-Validierung. Auch die Re-Ask-Korrekturschleife und das Fallback-Handling werden zentral hier gesteuert.
 
 ## 4. Weitere technische Entscheidungen & Trade-offs
 

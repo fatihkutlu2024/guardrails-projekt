@@ -97,9 +97,9 @@ uv run python -m src.main
 Führt alle definierten Testfälle aus und visualisiert die Validierungsergebnisse in einer übersichtlichen Terminal-Tabelle:
 
 ```sh
-python -m tests.test
+python -m tests.test_guard
 # mit uv:
-uv run python -m tests.test
+uv run python -m tests.test_guard
 ```
 
 
@@ -107,3 +107,4 @@ uv run python -m tests.test
 
 *   **Architektur & Trade-offs:** Eine detaillierte Begründung meiner Designentscheidungen, der Wahl der HR-Domäne sowie eine Diskussion der Kompromisse zwischen Latenz und Kosten findest du in der [DESIGN.md](DESIGN.md).
 *   **Testergebnisse:** Die Testergebnisse aller 11 Szenarien findest du in [test_results.md](tests/test_results.md).
+*   **Evaluierung der Ergebnsse:** Die Evaluierung der Ergebnisse findest du in [evaluation.md](docs/evaluation.md).
