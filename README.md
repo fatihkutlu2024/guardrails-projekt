@@ -37,7 +37,7 @@ Guardrails_Projekt/
 │   └── test.py          # Rich-Benchmark-Runner
 ├── .env.example         # Vorlage für Umgebungsvariablen
 ├── docs/
-│   ├── evaluation.md    # Auswertung der Testdaten
+│   └── evaluation.md    # Auswertung der Testdaten
 ├── .gitignore
 ├── requirements.txt     # Python-Abhängigkeiten
 ├── README.md
