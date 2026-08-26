@@ -37,12 +37,12 @@ Guardrails_Projekt/
 │   ├── test_guard.py    # Testdatei für HR_Guard
 │   ├── test_unprotected.py # Testdatei für Ablauf ohne Guard
 │   └── test_results.py  # Ergebnisse der Tests
-├── .env.example         # Vorlage für Umgebungsvariablen
 ├── docs/
 │   └── evaluation.md    # Auswertung der Testdaten
 ├── .gitignore
 ├── requirements.txt     # Python-Abhängigkeiten
 ├── README.md
+├── .env.example         # Vorlage für Umgebungsvariablen
 └── DESIGN.md            # Architektur und Entscheidungen
 ```
 
