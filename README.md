@@ -4,13 +4,13 @@
 
 Dieses Projekt ist meine Abgabe für die **Guardrails Challenge**.
 
-Ein KI-HR-Assistent mit mehrstufiger Validierung (**Defense in Depth**). Das System nutzt **Input- und Output-Guards** mit strukturierten Pydantic-Schemas, um Datenschutzverstöße (DSGVO), unzulässige Rechtsberatung und Prompt-Injections in Unternehmensumgebungen zuverlässig abzufangen.
+Ein KI-HR-Assistent mit mehrstufiger Validierung. Das System nutzt **Input- und Output-Guards** mit strukturierten Pydantic-Schemas, um Datenschutzverstöße (DSGVO), unzulässige Rechtsberatung und Prompt-Injections in Unternehmensumgebungen zuverlässig abzufangen.
 
 Das Projekt verwendet hierbei einen eigenen Custom-Guardrail-Ansatz auf Basis von **OpenAI Structured Outputs** und **Pydantic**.
 
 ---
 
-## 🏗️ Architektur & Funktionsweise
+## Architektur & Funktionsweise
 
 Das System schützt Unternehmensrichtlinien über einen dreistufigen Ablauf:
 
