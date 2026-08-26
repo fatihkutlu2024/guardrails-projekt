@@ -1,4 +1,4 @@
-# 📊 Evaluation & Reflexion
+# Evaluation & Reflexion
 
 Die vollständigen Testergebnisse und tabellarischen Auswertungen beider Testläufe (ungeschützt vs. geschützt) sind in **`tests/test_results.md`** dokumentiert.
 
