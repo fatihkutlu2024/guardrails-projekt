@@ -36,10 +36,12 @@ Guardrails_Projekt/
 │   ├── test_cases.py    # Testdatensatz mit HR-Szenarien
 │   └── test.py          # Rich-Benchmark-Runner
 ├── .env.example         # Vorlage für Umgebungsvariablen
+├── docs/
+│   ├── evaluation.md    # Auswertung der Testdaten
 ├── .gitignore
 ├── requirements.txt     # Python-Abhängigkeiten
 ├── README.md
-└── DESIGN.md
+└── DESIGN.md            # Architektur und Entscheidungen
 ```
 
 ---
