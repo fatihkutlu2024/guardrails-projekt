@@ -52,8 +52,8 @@ Guardrails_Projekt/
 
 ### 1. Repository klonen
 ```sh
-git clone [https://github.com/fatihkutlu2024/Guardrails_Projekt.git](https://github.com/fatihkutlu2024/Guardrails_Projekt.git)
-cd Guardrails_Projekt
+git clone https://github.com/fatihkutlu2024/guardrails-projekt.git
+cd guardrails-projekt
 ```
 
 ### 2. Virtuelle Umgebung erstellen & aktivieren
